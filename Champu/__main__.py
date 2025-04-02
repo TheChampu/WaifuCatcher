@@ -10,7 +10,7 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
 
-from Champu import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, Waifuu
+from Champu import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, Champuu
 from Champu import application, SUPPORT_CHAT, UPDATE_CHAT, db, LOGGER
 from Champu.modules import ALL_MODULES
 
@@ -244,6 +244,6 @@ def main() -> None:
     application.run_polling(drop_pending_updates=True)
     
 if __name__ == "__main__":
-    Waifuu.start()
+    Champuu.start()
     LOGGER.info("Bot started")
     main()
