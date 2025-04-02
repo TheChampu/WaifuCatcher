@@ -3,8 +3,8 @@ import os
 from pyrogram import Client 
 from telegram.ext import Application
 from motor.motor_asyncio import AsyncIOMotorClient
-from Champu import Config
-logging.basicConfig(
+from Champu import config
+logging.basicconfig(
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
@@ -15,18 +15,18 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
-API_ID = Config.API_ID
-API_HASH = Config.API_HASH
-TOKEN = Config.TOKEN
-GROUP_ID = Config.GROUP_ID
-CHARA_CHANNEL_ID = Config.CHARA_CHANNEL_ID 
-MONGO_URL = Config.MONGO_URL 
-PHOTO_URL = Config.PHOTO_URL 
-SUPPORT_CHAT = Config.SUPPORT_CHAT 
-UPDATE_CHAT = Config.UPDATE_CHAT
-BOT_USERNAME = Config.BOT_USERNAME 
-SUDOERS = Config.SUDOERS
-OWNER_ID = Config.OWNER_ID 
+API_ID = config.API_ID
+API_HASH = config.API_HASH
+TOKEN = config.TOKEN
+GROUP_ID = config.GROUP_ID
+CHARA_CHANNEL_ID = config.CHARA_CHANNEL_ID 
+MONGO_URL = config.MONGO_URL 
+PHOTO_URL = config.PHOTO_URL 
+SUPPORT_CHAT = config.SUPPORT_CHAT 
+UPDATE_CHAT = config.UPDATE_CHAT
+BOT_USERNAME = config.BOT_USERNAME 
+SUDOERS = config.SUDOERS
+OWNER_ID = config.OWNER_ID 
 JOINLOGS = "-1002084224770"
 LEAVELOGS = "-1002084224770"
 

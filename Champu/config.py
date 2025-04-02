@@ -13,7 +13,7 @@ TOKEN = getenv("TOKEN", "")
 # Get Your bot username
 BOT_USERNAME = getenv("BOT_USERNAME", "itsWaifuBot")
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://sanasomani786:TJgADfpkI1XVUkKt@cluster0.ruhyad9.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp")
+MONGO_URL = getenv("MONGO_DB_URL", "mongodb+srv://sanasomani786:TJgADfpkI1XVUkKt@cluster0.ruhyad9.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp")
 # Chat id of a group for logging bot's activities
 GROUP_ID = int(getenv("GROUP_ID", "-1001423108989"))
 CHARA_CHANNEL_ID = int(getenv("CHARA_CHANNEL_ID", "-1002084224770"))
