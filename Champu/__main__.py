@@ -296,16 +296,14 @@ def main() -> None:
     application.add_handler(MessageHandler(filters.ALL, message_counter, block=False))
     PORT = int(os.environ.get("PORT", "8443"))
     TOKEN = os.environ.get("TOKEN")
-    RENDER_EXTERNAL_URL = os.environ.get("RENDER_EXTERNAL_URL")
-    if not TOKEN or not RENDER_EXTERNAL_URL:
-        LOGGER.error("Environment variables TOKEN or RENDER_EXTERNAL_URL are not set")
+    if not TOKEN:
+        LOGGER.error("Environment variables TOKEN  are not set")
         return
     # Set the webhook URL
-    WEBHOOK_URL = f"{RENDER_EXTERNAL_URL}/{TOKEN}"
+    WEBHOOK_URL = f"{TOKEN}"
     # Log the values for debugging
     LOGGER.info(f"PORT: {PORT}")
     LOGGER.info(f"TOKEN: {TOKEN}")
-    LOGGER.info(f"RENDER_EXTERNAL_URL: {RENDER_EXTERNAL_URL}")
     LOGGER.info(f"WEBHOOK_URL: {WEBHOOK_URL}")
     # Start webhook
     application.run_webhook(
