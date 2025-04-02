@@ -44,12 +44,9 @@ async def start(update: Update, context: CallbackContext) -> None:
         caption = f"""Hey {first_name}✨\n I'm ˹ᴡᴀɪғᴜ ✘ ᴄᴀᴛᴄʜᴇʀ˼. I Am Anime Based Game Bot! Want to get help? Do `/help` !\nWant to request/report bugs? Click on the `Support` button!"""
         
         keyboard = [
-            [InlineKeyboardButton(" SUPPORT ", url=SUPPORT_CHAT),
+            [
              InlineKeyboardButton(" ADD ME ", url=f'https://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton(" UPDATE ", url=UPDATE_CHAT)],
-            [InlineKeyboardButton(" CONTACT ", user_id=OWNER_ID),
              InlineKeyboardButton(" SOURCE ", url=f'https://github.com/TheChampu/WaifuCatcher')]
-        ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         video_url = "https://checker.in/go/10483702"
         await context.bot.send_video(chat_id=update.effective_chat.id, video=video_url, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
