@@ -37,7 +37,7 @@ UPDATE_CHAT = getenv("UPDATE_CHAT", "ShivanshuHUB")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "TheChampuClub") 
 PHOTO_URL = ["https://telegra.ph/file/7e5398823512d307128a3.jpg", "https://telegra.ph/file/c45dcb207d81e97cb4f6a.jpg", "https://telegra.ph/file/0bc6d65878e8300fbf0f8.jpg", "https://telegra.ph/file/0afb45203ff162ee7227b.jpg"]
 # sudo_users
-SUDOERS = ["5702648302", "7006524418", "1414327092", "7006524418"]
+SUDOERS = ["5702648302", "5595153270", "1414327092", "7006524418"]
 BANNED_USERS = filters.user()
 TEMP_DB_FOLDER = "tempdb"
 adminlist = {}
