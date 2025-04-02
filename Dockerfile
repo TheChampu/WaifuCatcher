@@ -1,4 +1,3 @@
-# filepath: c:\Users\Shivanshu\Documents\TheChampu.GitHub\WaifuCatcher\Dockerfile
 FROM python:3.8.5-slim-buster
 
 # Disable cache for pip and set environment variables
