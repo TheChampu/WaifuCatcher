@@ -1,3 +1,4 @@
+# filepath: c:\Users\Shivanshu\Documents\TheChampu.GitHub\WaifuCatcher\Dockerfile
 FROM python:3.8.5-slim-buster
 
 # Disable cache for pip and set environment variables
@@ -63,6 +64,11 @@ RUN apt-get update && apt-get upgrade -y && \
 # Upgrade pip and setuptools
 RUN pip3 install --no-cache-dir --upgrade pip setuptools
 
+# Copy requirements.txt into the image
+COPY requirements.txt /app/requirements.txt
+
+# Set the working directory
+WORKDIR /app
 
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -U -r requirements.txt
