@@ -14,12 +14,12 @@
     "env": {
       "API_ID": {
         "description": "Get this value from https://my.telegram.org",
-        "value": "",
+        "value": "29893020",
         "required": true
       },
       "API_HASH": {
         "description": "Get this value from https://my.telegram.org",
-        "value": "",
+        "value": "28e79037f0b334ef0503466c53f08af5",
         "required": true
       },
       "TOKEN": {
@@ -34,17 +34,17 @@
       },
       "OWNER_ID": {
         "description": "The user id of user whom you would like to add as OWNER.",
-        "value": "",
+        "value": "7006524418",
         "required": true
       },
       "GROUP_ID": {
         "description": "A Pyrogram v2 String Session from Replit.",
-        "value": "",
+        "value": "-1001423108989",
         "required": true
       },
       "CHARA_CHANNEL_ID": {
         "description": "Your Heroku account's API key",
-        "value": "",
+        "value": "-1002523648960",
         "required": false
       },
       "HEROKU_APP_NAME": {
@@ -52,9 +52,9 @@
         "value": "",
         "required": false
       },
-      "LOG_GROUP_ID": {
-        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Do not ever try to put channel ID here.",
-        "value": "",
+      "SUDOERS": {
+        "description": "Suders ",
+        "value": "5702648302 7006524418 1414327092 1302298741",
         "required": true
       }
     },
