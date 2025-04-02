@@ -1,10 +1,10 @@
 FROM python:3.8.5-slim-buster
 
-ENV PIP_NO_CACHE_DIR 1
+# Disable cache for pip and set environment variables
+ENV PIP_NO_CACHE_DIR=1 \
+    PATH="/home/bot/bin:$PATH"
 
-RUN sed -i.bak 's/us-west-2\.ec2\.//' /etc/apt/sources.list
-
-# Installing Required Packages
+# Update and install required packages
 RUN apt update && apt upgrade -y && \
     apt install --no-install-recommends -y \
     debian-keyring \
@@ -21,7 +21,6 @@ RUN apt update && apt upgrade -y && \
     libwebp-dev \
     linux-headers-amd64 \
     musl-dev \
-    musl \
     neofetch \
     php-pgsql \
     python3-lxml \
@@ -57,17 +56,20 @@ RUN apt update && apt upgrade -y && \
     xvfb \
     unzip \
     libopus0 \
-    libopus-dev \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
+    libopus-dev && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
 
-# Pypi package Repo upgrade
+# Upgrade pip and setuptools
 RUN pip3 install --upgrade pip setuptools
 
+# Copy requirements.txt into the image
+COPY requirements.txt /app/requirements.txt
 
-ENV PATH="/home/bot/bin:$PATH"
+# Set the working directory
+WORKDIR /app
 
-# Install requirements
-RUN pip3 install -U -r requirements.txt
+# Install Python dependencies
+RUN pip3 install --no-cache-dir -U -r requirements.txt
 
-# Starting Worker
-CMD ["python3","-m", "Champu"]
+# Command to start the application
+CMD ["python3", "-m", "Champu"]
