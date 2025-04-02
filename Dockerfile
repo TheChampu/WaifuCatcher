@@ -1,12 +1,12 @@
 FROM python:3.8.5-slim-buster
 
-ENV PIP_NO_CACHE_DIR 1
+# Disable cache for pip and set environment variables
+ENV PIP_NO_CACHE_DIR=1 \
+    PATH="/home/bot/bin:$PATH"
 
-RUN sed -i.bak 's/us-west-2\.ec2\.//' /etc/apt/sources.list
-
-# Installing Required Packages
-RUN apt update && apt upgrade -y && \
-    apt install --no-install-recommends -y \
+# Update and install required packages
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install --no-install-recommends -y \
     debian-keyring \
     debian-archive-keyring \
     bash \
@@ -21,7 +21,6 @@ RUN apt update && apt upgrade -y && \
     libwebp-dev \
     linux-headers-amd64 \
     musl-dev \
-    musl \
     neofetch \
     php-pgsql \
     python3-lxml \
@@ -57,21 +56,19 @@ RUN apt update && apt upgrade -y && \
     xvfb \
     unzip \
     libopus0 \
-    libopus-dev \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
+    libopus-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp
 
-# Pypi package Repo upgrade
-RUN pip3 install --upgrade pip setuptools
+# Upgrade pip and setuptools
+RUN pip3 install --no-cache-dir --upgrade pip setuptools
 
-# Copy Python Requirements to /root/FallenRobot
+# Clone the repository and set the working directory
 RUN git clone https://github.com/Mynameishekhar/ptb /root/ptb
 WORKDIR /root/ptb
 
+# Install Python dependencies
+RUN pip3 install --no-cache-dir -U -r requirements.txt
 
-ENV PATH="/home/bot/bin:$PATH"
-
-# Install requirements
-RUN pip3 install -U -r requirements.txt
-
-# Starting Worker
-CMD ["python3","-m", "Champu"]
+# Command to start the application
+CMD ["python3", "-m", "Champu"]

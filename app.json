@@ -1,73 +1,62 @@
 {
-    "name": "WaifuCatcher",
-    "description": "A Telegram Waifu Catcher Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://files.catbox.moe/mtrkt5.jpg",
-    "keywords": [
-    "python3",
-    "telegram",
-    "bot",
-    "Champu",
-    "WaifuCatcher",
-    "telegram-bot",
-    "pyrogram"
-    ],
-    "env": {
+  "name": "WaifuCatcher",
+  "description": "A Telegram Waifu Catcher Bot, written in Python with Pyrogram and Py-Tgcalls.",
+  "logo": "https://files.catbox.moe/mtrkt5.jpg",
+  "keywords": [
+      "python3",
+      "telegram",
+      "bot",
+      "Champu",
+      "WaifuCatcher",
+      "telegram-bot",
+      "pyrogram"
+  ],
+  "env": {
       "API_ID": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "29893020",
-        "required": true
+          "description": "Get this value from https://my.telegram.org",
+          "value": "29893020",
+          "required": true
       },
       "API_HASH": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "28e79037f0b334ef0503466c53f08af5",
-        "required": true
+          "description": "Get this value from https://my.telegram.org",
+          "value": "28e79037f0b334ef0503466c53f08af5",
+          "required": true
       },
       "TOKEN": {
-        "description": "A Bot's token from Botfather",
-        "value": "",
-        "required": true
+          "description": "A Bot's token from Botfather",
+          "value": "",
+          "required": true
       },
       "MONGO_URL": {
-        "description": "Get a mongodb url from https://cloud.mongodb.com.",
-        "value": "",
-        "required": true
+          "description": "Get a mongodb url from https://cloud.mongodb.com.",
+          "value": "",
+          "required": true
       },
       "OWNER_ID": {
-        "description": "The user id of user whom you would like to add as OWNER.",
-        "value": "7006524418",
-        "required": true
+          "description": "The user id of user whom you would like to add as OWNER.",
+          "value": "7006524418",
+          "required": true
       },
       "GROUP_ID": {
-        "description": "A Pyrogram v2 String Session from Replit.",
-        "value": "-1001423108989",
-        "required": true
+          "description": "A Pyrogram v2 String Session from Replit.",
+          "value": "-1001423108989",
+          "required": true
       },
       "CHARA_CHANNEL_ID": {
-        "description": "Your Heroku account's API key",
-        "value": "-1002523648960",
-        "required": false
+          "description": "Your Heroku account's API key",
+          "value": "-1002523648960",
+          "required": false
       },
       "HEROKU_APP_NAME": {
-        "description": "Your heroku app name",
-        "value": "",
-        "required": false
+          "description": "Your heroku app name",
+          "value": "",
+          "required": false
       },
       "SUDOERS": {
-        "description": "Suders ",
-        "value": "5702648302 7006524418 1414327092 1302298741",
-        "required": true
+          "description": "Suders ",
+          "value": "5702648302 7006524418 1414327092 1302298741",
+          "required": true
       }
-    },
-    "buildpacks": [
-          {
-              "url": "heroku/python"
-          },
-          {
-              "url": "heroku/nodejs"
-          },
-          {
-              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-          }
-      ],
-      "stack": "heroku-22"
+  },
+  "stack": "container"
 }
