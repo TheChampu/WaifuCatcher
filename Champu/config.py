@@ -2,18 +2,18 @@ class Config(object):
     LOGGER = True
 
     # Get this value from my.telegram.org/apps
-    OWNER_ID = 7006524418
-    SUDOERS = "7006524418", "7006524418"
-    GROUP_ID = "-1002032426353"
-    TOKEN = "6707490163:AAHZzqjm3rbEZsObRiNaT7DMtw_i5WPo_0o"
-    MONGO_URL = "mongodb+srv://yash:shivanshudeo@yk.6bvcjqp.mongodb.net/?retryWrites=true&w=majority&appName=yk"
-    PHOTO_URL = ["https://telegra.ph/file/b925c3985f0f325e62e17.jpg", "https://telegra.ph/file/4211fb191383d895dab9d.jpg"]
-    SUPPORT_CHAT = "ShivanshuHUB"
-    UPDATE_CHAT = "ChattingClub007"
-    BOT_USERNAME = "ItsWaifuBot"
-    CHARA_CHANNEL_ID = "-1002032426353"
-    API_ID = 26626068
-    API_HASH = "bf423698bcbe33cfd58b11c78c42caa2"
+    OWNER_ID = "7006524418"
+    SUDOERS = ["5702648302", "7006524418", "1414327092", "1302298741"]
+    GROUP_ID = "-1001423108989"
+    TOKEN = "your bot token"
+    MONGO_URL = "your db"
+    PHOTO_URL = ["https://telegra.ph/file/7e5398823512d307128a3.jpg", "https://telegra.ph/file/c45dcb207d81e97cb4f6a.jpg", "https://telegra.ph/file/0bc6d65878e8300fbf0f8.jpg", "https://telegra.ph/file/0afb45203ff162ee7227b.jpg"]
+    SUPPORT_CHAT = "TheChampuClub"
+    UPDATE_CHAT = "ShivanshuHUB"
+    BOT_USERNAME = "itsWaifuBot"
+    CHARA_CHANNEL_ID = "-1002523648960"
+    API_ID = "29893020"
+    API_HASH = "28e79037f0b334ef0503466c53f08af5"
 
     
 class Production(Config):
