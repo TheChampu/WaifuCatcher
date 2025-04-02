@@ -3,7 +3,7 @@ import os
 from pyrogram import Client 
 from telegram.ext import Application
 from motor.motor_asyncio import AsyncIOMotorClient
-
+from Champu import Config
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
@@ -14,9 +14,6 @@ logging.getLogger("apscheduler").setLevel(logging.ERROR)
 logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
-
-from Champu.config import Development as Config
-
 
 API_ID = Config.API_ID
 API_HASH = Config.API_HASH
@@ -30,8 +27,8 @@ UPDATE_CHAT = Config.UPDATE_CHAT
 BOT_USERNAME = Config.BOT_USERNAME 
 SUDOERS = Config.SUDOERS
 OWNER_ID = Config.OWNER_ID 
-JOINLOGS = "-1001423108989"
-LEAVELOGS = "-1001977783984"
+JOINLOGS = "-1002084224770"
+LEAVELOGS = "-1002084224770"
 
 application = Application.builder().token(TOKEN).build()
 Champuu = Client("Champu", API_ID, API_HASH, bot_token=TOKEN)
