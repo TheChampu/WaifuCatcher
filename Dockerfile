@@ -63,9 +63,6 @@ RUN apt-get update && apt-get upgrade -y && \
 # Upgrade pip and setuptools
 RUN pip3 install --no-cache-dir --upgrade pip setuptools
 
-# Clone the repository and set the working directory
-RUN git clone https://github.com/Mynameishekhar/ptb /root/ptb
-WORKDIR /root/ptb
 
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -U -r requirements.txt
