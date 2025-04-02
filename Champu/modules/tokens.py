@@ -11,6 +11,7 @@ from pymongo import ReturnDocument
 from Champu import SUDOERS_collection
 from Champu.modules.database.sudo import is_user_sudo
 
+
 async def tokens(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
     user_balance = await user_collection.find_one({'id': user_id}, projection={'tokens': 1})
@@ -32,7 +33,7 @@ COOLDOWN_SECONDS = 300
 
 user_last_command_times = {}
 
-LOG_GROUP_ID = -1001234567890
+LOG_GROUP_ID = -1001423108989
 
 @app.on_message(filters.command(["convert"]))
 async def convert_tokens(client, message: Message):

