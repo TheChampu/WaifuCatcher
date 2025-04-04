@@ -13,7 +13,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from Champu import API_ID, API_HASH, TOKEN as BOT_TOKEN, MONGO_URL as MONGO_DB_URI, OWNER_ID, BANNED_USERS
+from Champu import API_ID, API_HASH, TOKEN, MONGO_URL, OWNER_ID, BANNED_USERS
 from motor.motor_asyncio import AsyncIOMotorClient as _mongo_client_
 from pymongo import MongoClient
 from pyrogram import Client
@@ -23,13 +23,13 @@ import Champu as config
 TEMP_MONGODB = "mongodb+srv://yash:shivanshudeo@yk.6bvcjqp.mongodb.net/?retryWrites=true&w=majority&appName=yk"
 
 
-if config.MONGO_DB_URI is None:
+if config.MONGO_URL is None:
     LOGGER(__name__).warning(
         "ɴᴏ ᴍᴏɴɢᴏ  ᴅʙ ᴜʀʟ ғᴏᴜɴᴅ.. sᴏ ɪ ᴡɪʟʟ ᴜsᴇ ᴍʏ ᴏᴡɴᴇʀ's ᴍᴏɴɢᴏ ᴅʙ ᴜʀʟ"
     )
     temp_client = Client(
         "ChampuMusic",
-        bot_token=config.BOT_TOKEN,
+        bot_token=config.TOKEN,
         api_id=config.API_ID,
         api_hash=config.API_HASH,
     )
@@ -42,8 +42,8 @@ if config.MONGO_DB_URI is None:
     mongodb = _mongo_async_[username]
     pymongodb = _mongo_sync_[username]
 else:
-    _mongo_async_ = _mongo_client_(config.MONGO_DB_URI)
-    _mongo_sync_ = MongoClient(config.MONGO_DB_URI)
+    _mongo_async_ = _mongo_client_(config.MONGO_URL)
+    _mongo_sync_ = MongoClient(config.MONGO_URL)
     mongodb = _mongo_async_.Champu
     pymongodb = _mongo_sync_.Champu
 from Sanatan import sudo_users_collection, app
@@ -51,7 +51,7 @@ SUDOERS = filters.user()
 def sudo():
     global SUDOERS
     OWNER = config.OWNER_ID
-    if config.MONGO_DB_URI is None:
+    if config.MONGO_URL is None:
         for user_id in OWNER:
             SUDOERS.add(user_id)
     else:
