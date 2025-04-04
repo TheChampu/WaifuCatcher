@@ -13,7 +13,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from Champu import API_ID, API_HASH, BOT_TOKEN, MONGO_DB_URI, OWNER_ID, BANNED_USERS
+from Champu import API_ID, API_HASH, BOT_TOKEN,MONGO_URL as MONGO_DB_URI, OWNER_ID, BANNED_USERS
 from motor.motor_asyncio import AsyncIOMotorClient as _mongo_client_
 from pymongo import MongoClient
 from pyrogram import Client
