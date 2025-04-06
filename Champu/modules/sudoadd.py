@@ -46,7 +46,7 @@ else:
     _mongo_sync_ = MongoClient(config.MONGO_URL)
     mongodb = _mongo_async_.Champu
     pymongodb = _mongo_sync_.Champu
-from Sanatan import sudo_users_collection, app
+from Champu import sudo_users_collection, app
 SUDOERS = filters.user()
 def sudo():
     global SUDOERS
