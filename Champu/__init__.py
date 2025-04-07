@@ -32,6 +32,7 @@ LEAVELOGS = "-1002084224770"
 
 application = Application.builder().token(TOKEN).build()
 Champuu = Client("Champu", API_ID, API_HASH, bot_token=TOKEN)
+app = Champuu
 lol = AsyncIOMotorClient(MONGO_URL)
 db = lol['Character_catcher']
 set_on_data = db['set_on_data']
