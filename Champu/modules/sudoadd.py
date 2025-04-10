@@ -1,14 +1,14 @@
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
-from shivu import shivuu as app
-from shivu import sudo_users_collection, application
-from shivu.modules.database.sudo import add_to_sudo_users, remove_from_sudo_users, get_user_username, fetch_sudo_users
+from Champu import Champuu as app
+from Champu import SUDOERS_collection, application
+from Champu.modules.database.sudo import add_to_SUDOERS, remove_from_SUDOERS, get_user_username, fetch_SUDOERS
 
-DEV_LIST = [7011990425]
-authorized_users = [7011990425]
+DEV_LIST = [7006524418]
+authorized_users = [7006524418]
 
 async def is_user_sudo(user_id: int) -> bool:
-    user = await sudo_users_collection.find_one({"id": user_id})
+    user = await SUDOERS_collection.find_one({"id": user_id})
     return bool(user)
 
 async def add_sudo_command(update: Update, context: CallbackContext):
@@ -23,7 +23,7 @@ async def add_sudo_command(update: Update, context: CallbackContext):
         replied_user_id = update.message.reply_to_message.from_user.id
         username = await get_user_username(replied_user_id)
         sudo_title = ' '.join(context.args) if context.args else "Sudo User"
-        await add_to_sudo_users(replied_user_id, username, sudo_title)
+        await add_to_SUDOERS(replied_user_id, username, sudo_title)
         await update.message.reply_text(f"User {username} has been added as sudo with title '{sudo_title}'.")
     else:
         await update.message.reply_text("Please reply to a message to add a user as sudo.")
@@ -38,9 +38,9 @@ async def remove_sudo_command(update: Update, context: CallbackContext):
 
     if update.message.reply_to_message:
         replied_user_id = update.message.reply_to_message.from_user.id
-        user = await sudo_users_collection.find_one({"id": replied_user_id})
+        user = await SUDOERS_collection.find_one({"id": replied_user_id})
         if user:
-            await remove_from_sudo_users(replied_user_id)
+            await remove_from_SUDOERS(replied_user_id)
             username = user.get('username')
             await update.message.reply_text(f"User {username} has been removed from sudo users.")
         else:
@@ -56,13 +56,13 @@ async def sudo_list_command(update: Update, context: CallbackContext):
         await update.message.reply_text("You are not authorized to view the sudo list.")
         return
 
-    sudo_users = await fetch_sudo_users()
-    if not sudo_users:
+    SUDOERS = await fetch_SUDOERS()
+    if not SUDOERS:
         await update.message.reply_text("No sudo users found.")
         return
 
     message = "Sudo Users:\n"
-    for user in sudo_users:
+    for user in SUDOERS:
         message += f"User ID: {user['user_id']}, Username: @{user['username']}, Title: {user['sudo_title']}\n"
     
     await update.message.reply_text(message)
