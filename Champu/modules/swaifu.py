@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from Champu import application, user_collection, collection
 from Champu import Champuu as app
 
-MUST_JOIN = "Lactose_edit"  # Replace with your group/channel username or ID
+MUST_JOIN = "ShivanshuHUB"  
 allowed_group_id = -1001423108989  # Replace with your allowed group ID
 cooldown_duration = timedelta(days=1)  # Cooldown duration of 24 hours
 
